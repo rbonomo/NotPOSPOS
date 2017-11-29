@@ -16,10 +16,11 @@ int main()
   std::cout<<"======================\n"
            <<"NotPOSPOS  Version 0.1\n"
            <<"======================\n";
-  order current;
+  order currentOrder;
   keypadController keypad(&current);
   registerController ticket(&inventory,&current);
+  currentOrder.addObserver(&keypad);
+  currentOrder.addObserver(&ticket);
   ticket.processOrder();
-
   return 0;
 }

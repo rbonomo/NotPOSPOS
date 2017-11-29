@@ -19,7 +19,7 @@ void registerController::processOrder()
   {
     std::cout<<"> ";
     std::cin>>command>>option;
-    
+
     if(command.compare("buy") == 0)
     {
       item add = database->lookup((int)option);
@@ -34,4 +34,8 @@ void registerController::processOrder()
   }while( command.compare("pay") != 0 );
   cart->balance(option);
   screen.displayFinalReceipt(*cart);
+}
+
+void registerController::update() {
+  this->screen.displayRunningTotal(*cart);
 }

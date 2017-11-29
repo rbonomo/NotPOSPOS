@@ -1,8 +1,9 @@
 #ifndef ORDER_H
 #define ORDER_H
 #include "IOrder.h"
+#include "OpservablePattern.cpp"
 
-class order : public IOrder
+class order : public IOrder, public Observable
 {
   private:
     std::vector<item> itemList;
